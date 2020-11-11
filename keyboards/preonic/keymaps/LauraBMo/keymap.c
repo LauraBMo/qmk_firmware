@@ -308,3 +308,8 @@ bool music_mask_user(uint16_t keycode) {
       return true;
   }
 }
+
+/* Local Variables: */
+/* before-save-hook: nil */
+/* eval: (setq-local before-save-hook nil) */
+/* End: */
