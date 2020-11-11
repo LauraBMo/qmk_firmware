@@ -16,6 +16,8 @@
 
 #include QMK_KEYBOARD_H
 #include "muse.h"
+#include "keymap_danish.h"
+#include "keymap_spanish.h"
 
 enum preonic_layers {
   _QWERTY,
