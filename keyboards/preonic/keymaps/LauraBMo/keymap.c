@@ -29,7 +29,8 @@ enum preonic_layers {
   _QWERTY_GRK,
   _LOWER,
   _RAISE,
-  _ADJUST
+  _ADJUST,
+  _MORE
 };
 
 enum preonic_keycodes {
@@ -38,6 +39,7 @@ enum preonic_keycodes {
   QWERTY_GRK,
   LOWER,
   RAISE,
+  MORE,
   BACKLIT,
   ALT_TAB
 };
