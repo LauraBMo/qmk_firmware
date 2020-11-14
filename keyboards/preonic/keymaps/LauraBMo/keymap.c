@@ -26,6 +26,7 @@ uint16_t alt_tab_timer = 0;
 enum preonic_layers {
   _QWERTY,
   _QWERTY_ESP,
+  _QWERTY_GRK,
   _LOWER,
   _RAISE,
   _ADJUST
@@ -34,14 +35,116 @@ enum preonic_layers {
 enum preonic_keycodes {
   QWERTY = SAFE_RANGE,
   QWERTY_ESP,
+  QWERTY_GRK,
   LOWER,
   RAISE,
   BACKLIT,
   ALT_TAB
 };
 
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+enum unicode_names {
+   CALPHA,
+   CBETA,
+   CGAMMA,
+   CDELTA,
+   CEPSILON,
+   CZETA,
+   CETA,
+   CTHETA,
+   CIOTA,
+   CKAPPA,
+   CLAMBDA,
+   CMU,
+   CNU,
+   CXI,
+   COMICRON,
+   CPI,
+   CRHO,
+   CSIGMA,
+   CTAU,
+   CUPSILON,
+   CPHI,
+   CCHI,
+   CPSI,
+   COMEGA,
+   ALPHA,
+   BETA,
+   GAMMA,
+   DELTA,
+   EPSILON,
+   ZETA,
+   ETA,
+   THETA,
+   IOTA,
+   KAPPA,
+   LAMBDA,
+   MU,
+   NU,
+   XI,
+   OMICRON,
+   PI,
+   RHO,
+   SIGMA,
+   TAU,
+   UPSILON,
+   PHI,
+   CHI,
+   PSI,
+   OMEGA
+};
 
+const uint32_t PROGMEM unicode_map[] = {
+ [CALPHA]   = 0x0391, // Α 
+ [CBETA]    = 0x0392, // Β 
+ [CGAMMA]   = 0x0393, // Γ 
+ [CDELTA]   = 0x0394, // Δ 
+ [CEPSILON] = 0x0395, // Ε 
+ [CZETA]    = 0x0396, // Ζ 
+ [CETA]     = 0x0397, // Η 
+ [CTHETA]   = 0x0398, // Θ 
+ [CIOTA]    = 0x0399, // Ι 
+ [CKAPPA]   = 0x039A, // Κ 
+ [CLAMBDA]  = 0x039B, // Λ 
+ [CMU]      = 0x039C, // Μ 
+ [CNU]      = 0x039D, // Ν 
+ [CXI]      = 0x039E, // Ξ 
+ [COMICRON] = 0x039F, // Ο 
+ [CPI]      = 0x03A0, // Π 
+ [CRHO]     = 0x03A1, // Ρ 
+ [CSIGMA]   = 0x03A3, // Σ 
+ [CTAU]     = 0x03A4, // Τ 
+ [CUPSILON] = 0x03A5, // Υ 
+ [CPHI]     = 0x03A6, // Φ 
+ [CCHI]     = 0x03A7, // Χ 
+ [CPSI]     = 0x03A8, // Ψ 
+ [COMEGA]   = 0x03A9, // Ω 
+ [ALPHA]    = 0x03B1, // α
+ [BETA]     = 0x03B2, // β
+ [GAMMA]    = 0x03B3, // γ
+ [DELTA]    = 0x03B4, // δ
+ [EPSILON]  = 0x03B5, // ε
+ [ZETA]     = 0x03B6, // ζ
+ [ETA]      = 0x03B7, // η
+ [THETA]    = 0x03B8, // θ
+ [IOTA]     = 0x03B9, // ι
+ [KAPPA]    = 0x03BA, // κ
+ [LAMBDA]   = 0x03BB, // λ
+ [MU]       = 0x03BC, // μ
+ [NU]       = 0x03BD, // ν
+ [XI]       = 0x03BE, // ξ
+ [OMICRON]  = 0x03BF, // ο
+ [PI]       = 0x03C0, // π
+ [RHO]      = 0x03C1, // ρ
+ [SIGMA]    = 0x03C3, // σ
+ [TAU]      = 0x03C4, // τ
+ [UPSILON]  = 0x03C5, // υ
+ [PHI]      = 0x03C6, // φ
+ [CHI]      = 0x03C7, // χ
+ [PSI]      = 0x03C8, // ψ
+ [OMEGA]    = 0x03C9, // ω
+};
+
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
  * |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
@@ -82,6 +185,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_ESC,  KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
   BACKLIT, KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+),
+
+/* Qwerty Greek
+ * ,-----------------------------------------------------------------------------------.
+ * |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Del  |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | Brite| Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_QWERTY_GRK] = LAYOUT_preonic_grid(
+ KC_GESC,  KC_1,     KC_2,     KC_3,       KC_4,   KC_5,     KC_6,   KC_7,       KC_8,     KC_9,      KC_0,    KC_BSPC,
+ _______, XP(XI,CXI),    XP(THETA,CTHETA), XP(EPSILON,CEPSILON), XP(RHO,CRHO), XP(TAU,CTAU),   XP(PSI,CPSI), XP(UPSILON,CUPSILON), XP(IOTA,CIOTA),  XP(OMEGA,COMEGA),  XP(PI,CPI),   KC_ENT,
+ _______, XP(ALPHA,CALPHA), XP(SIGMA,CSIGMA), XP(DELTA,CDELTA),   XP(PHI,CPHI), XP(GAMMA,CGAMMA), XP(ETA,CETA), KC_J,       XP(KAPPA,CKAPPA), XP(LAMBDA,CLAMBDA), KC_SCLN, KC_RCTL,
+ KC_LSFT, XP(ZETA,CZETA),  XP(CHI,CCHI),   XP(OMICRON,COMICRON), KC_V,   XP(BETA,CBETA),  XP(NU,CNU),  XP(MU,CMU),      KC_COMM,  KC_DOT,    KC_SLSH, KC_RSFT,
+ BACKLIT, KC_RGUI,  KC_LCTL,  KC_LALT,    LOWER,  KC_SPC,   KC_SPC, RAISE,      KC_LEFT,  KC_DOWN,   KC_UP,   KC_RGHT
 ),
 
 /* Lower
