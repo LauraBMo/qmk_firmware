@@ -35,3 +35,6 @@
 
 /* override number of MIDI tone keycodes (each octave adds 12 keycodes and allocates 12 bytes) */
 //#define MIDI_TONE_KEYCODE_OCTAVES 2
+
+/* Input mode for unicode chars: UC_MAC, UC_LNX or UC_WINC */
+#define UNICODE_SELECTED_MODES UC_LNX
