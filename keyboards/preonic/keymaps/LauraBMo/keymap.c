@@ -281,12 +281,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case QWERTY:
           if (record->event.pressed) {
             set_single_persistent_default_layer(_QWERTY);
+            SEND_STRING(SS_RGUI("z"));
           }
           return false;
           break;
         case QWERTY_ESP:
           if (record->event.pressed) {
             set_single_persistent_default_layer(_QWERTY_ESP);
+            SEND_STRING(SS_RGUI("z"));
           }
           return false;
           break;
