@@ -27,10 +27,10 @@ enum preonic_layers {
   _QWERTY,
   _QWERTY_ESP,
   _QWERTY_GRK,
+  _MATH,
   _LOWER,
   _RAISE,
   _ADJUST,
-  _MORE
 };
 
 enum preonic_keycodes {
@@ -203,11 +203,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY_GRK] = LAYOUT_preonic_grid(
- KC_GESC,  KC_1,     KC_2,     KC_3,       KC_4,   KC_5,     KC_6,   KC_7,       KC_8,     KC_9,      KC_0,    KC_BSPC,
- _______, XP(XI,CXI),    XP(THETA,CTHETA), XP(EPSILON,CEPSILON), XP(RHO,CRHO), XP(TAU,CTAU),   XP(PSI,CPSI), XP(UPSILON,CUPSILON), XP(IOTA,CIOTA),  XP(OMEGA,COMEGA),  XP(PI,CPI),   KC_ENT,
- _______, XP(ALPHA,CALPHA), XP(SIGMA,CSIGMA), XP(DELTA,CDELTA),   XP(PHI,CPHI), XP(GAMMA,CGAMMA), XP(ETA,CETA), KC_J,       XP(KAPPA,CKAPPA), XP(LAMBDA,CLAMBDA), KC_SCLN, KC_RCTL,
- KC_LSFT, XP(ZETA,CZETA),  XP(CHI,CCHI),   XP(OMICRON,COMICRON), KC_V,   XP(BETA,CBETA),  XP(NU,CNU),  XP(MU,CMU),      KC_COMM,  KC_DOT,    KC_SLSH, KC_RSFT,
- BACKLIT, KC_RGUI,  KC_LCTL,  KC_LALT,    LOWER,  KC_SPC,   KC_SPC, RAISE,      KC_LEFT,  KC_DOWN,   KC_UP,   KC_RGHT
+KC_GESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC,
+KC_TAB, XP(XI,CXI), XP(THETA,CTHETA), XP(EPSILON,CEPSILON), XP(RHO,CRHO), XP(TAU,CTAU), XP(PSI,CPSI), KC_U, XP(IOTA,CIOTA), XP(OMEGA,COMEGA), XP(PI,CPI), KC_ENT,
+KC_LSPO, XP(ALPHA,CALPHA), XP(SIGMA,CSIGMA), XP(DELTA,CDELTA), XP(PHI,CPHI), XP(GAMMA,CGAMMA), XP(ETA,CETA), KC_J, XP(KAPPA,CKAPPA), XP(LAMBDA,CLAMBDA), KC_SCLN, RCTL_T(KC_QUOT),
+LSFT_T(KC_ENT), XP(ZETA,CZETA), XP(CHI,CCHI), XP(OMICRON,COMICRON), XP(UPSILON,CUPSILON), XP(BETA,CBETA), XP(NU,CNU), XP(MU,CMU), KC_COMM, KC_DOT, KC_SLSH, RSFT_T(KC_BSLS),
+KC_RGUI, MORE, LCTL_T(KC_LBRC), KC_LAPO, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT
+),
+
+/* Qwerty Math
+ * ,-----------------------------------------------------------------------------------.
+ * |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Del  |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | Brite| Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_MATH] = LAYOUT_preonic_grid(
+KC_GESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC,
+KC_TAB, XP(XI,CXI), XP(THETA,CTHETA), XP(EPSILON,CEPSILON), XP(RHO,CRHO), XP(TAU,CTAU), XP(PSI,CPSI), KC_U, XP(IOTA,CIOTA), XP(OMEGA,COMEGA), XP(PI,CPI), KC_ENT,
+KC_LSPO, XP(ALPHA,CALPHA), XP(SIGMA,CSIGMA), XP(DELTA,CDELTA), XP(PHI,CPHI), XP(GAMMA,CGAMMA), XP(ETA,CETA), KC_J, XP(KAPPA,CKAPPA), XP(LAMBDA,CLAMBDA), KC_SCLN, RCTL_T(KC_QUOT),
+LSFT_T(KC_ENT), XP(ZETA,CZETA), XP(CHI,CCHI), XP(OMICRON,COMICRON), XP(UPSILON,CUPSILON), XP(BETA,CBETA), XP(NU,CNU), XP(MU,CMU), KC_COMM, KC_DOT, KC_SLSH, RSFT_T(KC_BSLS),
+KC_RGUI, MORE, LCTL_T(KC_LBRC), KC_LAPO, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT
 ),
 
 /* Lower
@@ -296,9 +317,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           if (record->event.pressed) {
             layer_on(_LOWER);
             update_tri_layer(_LOWER, _RAISE, _ADJUST);
+            update_tri_layer(_LOWER, _QWERTY_GRK, _MATH);
           } else {
             layer_off(_LOWER);
             update_tri_layer(_LOWER, _RAISE, _ADJUST);
+            update_tri_layer(_LOWER, _QWERTY_GRK, _MATH);
           }
           return false;
           break;
@@ -309,6 +332,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           } else {
             layer_off(_RAISE);
             update_tri_layer(_LOWER, _RAISE, _ADJUST);
+          }
+          return false;
+          break;
+        case MORE:
+          if (record->event.pressed) {
+            layer_on(_QWERTY_GRK);
+            update_tri_layer(_LOWER, _QWERTY_GRK, _MATH);
+          } else {
+            layer_off(_QWERTY_GRK);
+            update_tri_layer(_LOWER, _QWERTY_GRK, _MATH);
           }
           return false;
           break;
