@@ -38,6 +38,9 @@ enum preonic_keycodes {
   RAISE,
   MORE,
   BACKLIT,
+  OCPRN,
+  OCBRC,
+  OCCBR
 };
 
 enum unicode_names {
@@ -151,17 +154,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |LGUI/:|   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |Ctrl/"|
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |Sf/Ent|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Sft/\ |
+ * | Sf/{ |   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Sft/\ |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | RGUI | MORE |Ctl/[ |Alt/( |Lower |    Space    |Raise | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid(
- KC_GESC, KC_1, KC_2,            KC_3,    KC_4,  KC_5,   KC_6,   KC_7,  KC_8,    KC_9,    KC_0,    KC_BSPC,
- KC_TAB,  KC_Q, KC_W,            KC_E,    KC_R,  KC_T,   KC_Y,   KC_U,  KC_I,    KC_O,    KC_P,    KC_ENT,
- KC_LSPO, KC_A, KC_S,            KC_D,    KC_F,  KC_G,   KC_H,   KC_J,  KC_K,    KC_L,    KC_SCLN, RCTL_T(KC_QUOT),
- KC_RSPC, KC_Z, KC_X,            KC_C,    KC_V,  KC_B,   KC_N,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH, RSFT_T(KC_BSLS),
- KC_RGUI, MORE, LCTL_T(KC_LBRC), KC_LAPO, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+ KC_GESC, KC_1, KC_2,    KC_3,    KC_4,  KC_5,    KC_6,    KC_7,  KC_8,    KC_9,    KC_0,    KC_BSPC,
+ KC_TAB,  KC_Q, KC_W,    KC_E,    KC_R,  KC_T,    KC_Y,    KC_U,  KC_I,    KC_O,    KC_P,    KC_ENT,
+ KC_LSPO, KC_A, KC_S,    KC_D,    KC_F,  KC_G,    KC_H,    KC_J,  KC_K,    KC_L,    KC_SCLN, SFT_QOT,
+ KC_RSPC, KC_Z, KC_X,    KC_C,    KC_V,  KC_B,    KC_N,    KC_M,  KC_COMM, KC_DOT,  KC_SLSH, CTL_BSLS,
+ KC_RGUI, MORE, CTL_LBR, KC_LAPO, LOWER, CTL_SPC, CTL_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,
 ),
 
 /* QWERTY_ESP
@@ -178,11 +181,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY_ESP] = LAYOUT_preonic_grid(
- ES_MORD,         ES_1,    ES_2,            ES_3,    ES_4,  ES_5,   ES_6,   ES_7,  ES_8,    ES_9,    ES_0,    KC_BSPC,
- KC_TAB,          ES_Q,    ES_W,            ES_E,    ES_R,  ES_T,   ES_Y,   ES_U,  ES_I,    ES_O,    ES_P,    KC_ENT,
- KC_LSPO,         ES_A,    ES_S,            ES_D,    ES_F,  ES_G,   ES_H,   ES_J,  ES_K,    ES_L,    ES_NTIL, RCTL_T(ES_CCED),
- LSFT_T(ES_GRV),  ES_Z,    ES_X,            ES_C,    ES_V,  ES_B,   ES_N,   ES_M,  ES_COMM, ES_DOT,  ES_QUOT, RSFT_T(ES_ACUT),
- KC_RGUI,         KC_ALGR, LCTL_T(KC_LBRC), KC_LAPO, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+ ES_MORD,        ES_1,    ES_2,            ES_3,    ES_4,  ES_5,   ES_6,   ES_7,  ES_8,    ES_9,    ES_0,    KC_BSPC,
+ KC_TAB,         ES_Q,    ES_W,            ES_E,    ES_R,  ES_T,   ES_Y,   ES_U,  ES_I,    ES_O,    ES_P,    KC_ENT,
+ KC_LSPO,        ES_A,    ES_S,            ES_D,    ES_F,  ES_G,   ES_H,   ES_J,  ES_K,    ES_L,    ES_NTIL, RSFT_T(ES_CCED),
+ LSFT_T(ES_GRV), ES_Z,    ES_X,            ES_C,    ES_V,  ES_B,   ES_N,   ES_M,  ES_COMM, ES_DOT,  ES_QUOT, RCTL_T(ES_ACUT),
+ KC_RGUI,        KC_ALGR, LCTL_T(KC_LBRC), KC_LAPO, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Qwerty Greek
@@ -242,11 +245,12 @@ KC_RGUI, MORE, LCTL_T(KC_LBRC), KC_LAPO, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, 
  */
 [_LOWER] = LAYOUT_preonic_grid(
  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
- _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_PSCR,
- _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_UNDS, KC_PLUS, _______, _______, _______,
+ _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, KC_PSCR,
+ _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, KC_DQT,
  _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, KC_LT,   KC_GT,   KC_QUES, KC_PIPE,
- _______, _______, _______, _______, _______, KC_MPLY, KC_MPLY, KC_MSTP, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT
+ KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, KC_MPLY, KC_MPLY, _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT
 ),
+
 
 /* Raise
  * ,-----------------------------------------------------------------------------------.
@@ -262,11 +266,11 @@ KC_RGUI, MORE, LCTL_T(KC_LBRC), KC_LAPO, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, 
  * `-----------------------------------------------------------------------------------'
  */
 [_RAISE] = LAYOUT_preonic_grid(
- KC_GRAVE, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, _______, _______, _______,
- KC_TILD,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_RPRN, KC_RBRC, KC_RCBR,
- _______,  _______, _______, _______, _______, _______, _______, KC_MINS, KC_EQL,  _______, _______, KC_DQT,
- _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
- KC_HOME,  KC_PGDN, KC_PGUP, KC_END,  _______, KC_SPC,  KC_SPC,  _______, _______, _______, _______, _______
+ KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+ KC_TILD,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, OCPRN,   OCBRC,   OCCBR,
+ _______,  KC_MINS, KC_UNDS, KC_EQL,  KC_PLUS, _______, _______, _______, _______, _______, _______, _______,
+ KC_RCBR,  KC_UNDS, KC_PLUS, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+ _______,  _______, KC_RBRC, KC_RPRN, _______, KC_SPC,  KC_SPC,  _______, _______, _______, _______, _______
 ),
 
 /* Adjust (Lower + Raise)
@@ -283,31 +287,17 @@ KC_RGUI, MORE, LCTL_T(KC_LBRC), KC_LAPO, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, 
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = LAYOUT_preonic_grid(
- RESET,   _______,  _______, _______, _______, _______, _______, _______, _______, _______,    _______,    KC_PWR,
- _______, _______,  _______, _______, _______, _______, _______, _______, _______, _______,    _______,    KC_SLEP,
- _______, RGB_SAD,  RGB_SAI, _______, _______, _______, _______, _______, QWERTY,  QWERTY_ESP, QWERTY_GRK, _______,
- RGB_TOG, RGB_RMOD, RGB_MOD, _______, _______, _______, _______, _______, _______, _______,    _______,    _______,
- RGB_SPD, RGB_VAD,  RGB_VAI, RGB_SPI, _______, _______, _______, _______, _______, _______,    _______,    _______
+ RESET,   _______,  _______, _______, _______, _______, _______, _______, _______,    _______,    _______, KC_PWR,
+ _______, _______,  _______, _______, _______, _______, _______, _______, _______,    _______,    _______, KC_SLEP,
+ _______, RGB_SAD,  RGB_SAI, _______, _______, _______, _______, QWERTY,  QWERTY_ESP, QWERTY_GRK, MATH,    _______,
+ RGB_TOG, RGB_RMOD, RGB_MOD, _______, _______, _______, _______, _______, _______,    _______,    _______, _______,
+ RGB_SPD, RGB_VAD,  RGB_VAI, RGB_SPI, _______, _______, _______, _______, _______,    _______,    _______, _______
 )
 
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-        case QWERTY:
-          if (record->event.pressed) {
-            set_single_persistent_default_layer(_QWERTY);
-            SEND_STRING(SS_RGUI("z"));
-          }
-          return false;
-          break;
-        case QWERTY_ESP:
-          if (record->event.pressed) {
-            set_single_persistent_default_layer(_QWERTY_ESP);
-            SEND_STRING(SS_RGUI("z"));
-          }
-          return false;
-          break;
         case LOWER:
           if (record->event.pressed) {
             layer_on(_LOWER);
@@ -327,6 +317,50 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           } else {
             layer_off(_RAISE);
             update_tri_layer(_LOWER, _RAISE, _ADJUST);
+          }
+          return false;
+          break;
+        case OCPRN:
+          if (record->event.pressed) {
+            SEND_STRING("()");
+          }
+          return false;
+          break;
+        case OCBRC:
+          if (record->event.pressed) {
+            SEND_STRING("[]");
+          }
+          return false;
+          break;
+        case OCCBR:
+          if (record->event.pressed) {
+            SEND_STRING("{}");
+          }
+          return false;
+          break;
+        case QWERTY:
+          if (record->event.pressed) {
+            set_single_persistent_default_layer(_QWERTY);
+            SEND_STRING(SS_RGUI("z"));
+          }
+          return false;
+          break;
+        case QWERTY_ESP:
+          if (record->event.pressed) {
+            set_single_persistent_default_layer(_QWERTY_ESP);
+            SEND_STRING(SS_RGUI("z"));
+          }
+          return false;
+          break;
+        case MATH:
+          if (record->event.pressed) {
+            set_single_persistent_default_layer(_MATH);
+          }
+          return false;
+          break;
+        case QWERTY_GRK:
+          if (record->event.pressed) {
+            set_single_persistent_default_layer(_QWERTY_GRK);
           }
           return false;
           break;

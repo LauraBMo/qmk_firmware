@@ -44,3 +44,8 @@
 /* LAPO_KEYS is already in use */
 #define LSPO_KEYS KC_LGUI, KC_LSFT, KC_SCLN
 #define RSPC_KEYS KC_LSFT, KC_LSFT, KC_LBRC
+
+#define CTL_LBR LCTL_T(KC_LBRC)
+#define CTL_SPC RCTL_T(KC_SPC)
+#define SFT_QOT RSFT_T(KC_QUOT)
+#define CTL_BSLS RCTL_T(KC_BSLS)
