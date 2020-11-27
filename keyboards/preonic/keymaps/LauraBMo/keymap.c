@@ -37,6 +37,7 @@ enum preonic_keycodes {
   QWERTY = SAFE_RANGE,
   QWERTY_ESP,
   QWERTY_GRK,
+  MATH,
   LOWER,
   RAISE,
   MORE,
