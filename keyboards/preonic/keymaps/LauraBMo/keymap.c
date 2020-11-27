@@ -19,10 +19,6 @@
 /* #include "keymap_danish.h" */
 #include "keymap_spanish.h"
 
-/* For the Alt_Tab key */
-bool is_alt_tab_active = false;
-uint16_t alt_tab_timer = 0;
-
 enum preonic_layers {
   _QWERTY,
   _QWERTY_ESP,
@@ -42,7 +38,6 @@ enum preonic_keycodes {
   RAISE,
   MORE,
   BACKLIT,
-  ALT_TAB
 };
 
 enum unicode_names {
@@ -345,34 +340,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           }
           return false;
           break;
-          case ALT_TAB:
-          if (record->event.pressed) {
-            if (!is_alt_tab_active) {
-              is_alt_tab_active = true;
-              register_code(KC_LALT);
-            }
-            alt_tab_timer = timer_read();
-            register_code(KC_TAB);
-          } else {
-            unregister_code(KC_TAB);
-          }
-          return false;
-          break;
       }
     return true;
 };
-
-void matrix_scan_user(void) {
-/* For the Alt_Tab key */
-/* The very important timer. */
-    if (is_alt_tab_active) {
-      if (timer_elapsed(alt_tab_timer) > 1000) {
-        unregister_code(KC_LALT);
-        is_alt_tab_active = false;
-      }
-    }
-}
-
 
 /* Local Variables: */
 /* before-save-hook: nil */
