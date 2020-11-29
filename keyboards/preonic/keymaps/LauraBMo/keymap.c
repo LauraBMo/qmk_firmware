@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_preonic_grid(
  KC_GESC, KC_1, KC_2,    KC_3,    KC_4,  KC_5,    KC_6,    KC_7,  KC_8,    KC_9,    KC_0,    KC_BSPC,
  KC_TAB,  KC_Q, KC_W,    KC_E,    KC_R,  KC_T,    KC_Y,    KC_U,  KC_I,    KC_O,    KC_P,    KC_ENT,
- KC_LSPO, KC_A, KC_S,    KC_D,    KC_F,  KC_G,    KC_H,    KC_J,  KC_K,    KC_L,    KC_SCLN, SFT_QOT,
+ KC_LSPO, KC_A, KC_S,    KC_D,    KC_F,  KC_G,    KC_H,    KC_J,  KC_K,    KC_L,    KC_SCLN, SFT_QUOT,
  KC_RSPC, KC_Z, KC_X,    KC_C,    KC_V,  KC_B,    KC_N,    KC_M,  KC_COMM, KC_DOT,  KC_SLSH, CTL_BSLS,
  KC_RGUI, MORE, CTL_LBR, KC_LAPO, LOWER, CTL_SPC, CTL_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
@@ -80,11 +80,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY_ESP] = LAYOUT_preonic_grid(
- ES_MORD,        ES_1,    ES_2,            ES_3,    ES_4,  ES_5,   ES_6,   ES_7,  ES_8,    ES_9,    ES_0,    KC_BSPC,
- KC_TAB,         ES_Q,    ES_W,            ES_E,    ES_R,  ES_T,   ES_Y,   ES_U,  ES_I,    ES_O,    ES_P,    KC_ENT,
- KC_LSPO,        ES_A,    ES_S,            ES_D,    ES_F,  ES_G,   ES_H,   ES_J,  ES_K,    ES_L,    ES_NTIL, RSFT_T(ES_CCED),
- LSFT_T(ES_GRV), ES_Z,    ES_X,            ES_C,    ES_V,  ES_B,   ES_N,   ES_M,  ES_COMM, ES_DOT,  ES_QUOT, RCTL_T(ES_ACUT),
- KC_RGUI,        KC_ALGR, LCTL_T(KC_LBRC), KC_LAPO, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+ ES_MORD, ES_1,    ES_2,    ES_3,    ES_4,  ES_5,    ES_6,    ES_7,  ES_8,    ES_9,    ES_0,    KC_BSPC,
+ KC_TAB,  ES_Q,    ES_W,    ES_E,    ES_R,  ES_T,    ES_Y,    ES_U,  ES_I,    ES_O,    ES_P,    KC_ENT,
+ KC_LSPO, ES_A,    ES_S,    ES_D,    ES_F,  ES_G,    ES_H,    ES_J,  ES_K,    ES_L,    ES_NTIL, SFT_CCED,
+ SFT_GRV, ES_Z,    ES_X,    ES_C,    ES_V,  ES_B,    ES_N,    ES_M,  ES_COMM, ES_DOT,  ES_QUOT, CTL_ACUT,
+ KC_RGUI, KC_ALGR, CTL_LBR, KC_LAPO, LOWER, CTL_SPC, CTL_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Qwerty Greek
