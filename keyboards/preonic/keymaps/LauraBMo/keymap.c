@@ -128,7 +128,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  _______, RGB_SAD,  RGB_SAI, _______, _______, _______, _______, QWERTY,  QWERTY_ESP, QWERTY_GRK, MATH,    _______,
  RGB_TOG, RGB_RMOD, RGB_MOD, _______, _______, _______, _______, _______, _______,    _______,    _______, _______,
  RGB_SPD, RGB_VAD,  RGB_VAI, RGB_SPI, _______, _______, _______, _______, _______,    _______,    _______, _______
-)
+),
+
 /* QWERTY_ESP
  * ,-----------------------------------------------------------------------------------.
  * |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
@@ -190,7 +191,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  KC_LSPO, GK_ALPH, GK_SGMA, GK_DLTA, GK_PHI, GK_GMMA, GK_ETA,  KC_J,  GK_KPPA, GK_LMBD, KC_SCLN, SFT_QUOT,
  KC_RSPC, GK_ZETA, GK_CHI,  GK_OMI,  GK_UPS, GK_BETA, GK_NU,   GK_MU, KC_COMM, KC_DOT,  KC_SLSH, CTL_BSLS,
  KC_RGUI, MORE,    CTL_LBR, KC_LAPO, LOWER,  CTL_SPC, CTL_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
-),
+)
 
 
 };
