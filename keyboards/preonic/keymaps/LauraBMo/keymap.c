@@ -66,69 +66,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  KC_RGUI, MORE, CTL_LBR, KC_LAPO, LOWER, CTL_SPC, CTL_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
-/* QWERTY_ESP
- * ,-----------------------------------------------------------------------------------.
- * |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Tab  |   Q  |   W  |   F  |   P  |   G  |   J  |   L  |   U  |   Y  |   ;  | Del  |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Esc  |   A  |   R  |   S  |   T  |   D  |   H  |   N  |   E  |   I  |   O  |  "   |
- * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | Shift|   Z  |   X  |   C  |   V  |   B  |   K  |   M  |   ,  |   .  |   /  |Enter |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Brite| Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
- * `-----------------------------------------------------------------------------------'
- */
-[_QWERTY_ESP] = LAYOUT_preonic_grid(
- ES_MORD, ES_1,    ES_2,    ES_3,    ES_4,  ES_5,    ES_6,    ES_7,  ES_8,    ES_9,    ES_0,    KC_BSPC,
- KC_TAB,  ES_Q,    ES_W,    ES_E,    ES_R,  ES_T,    ES_Y,    ES_U,  ES_I,    ES_O,    ES_P,    KC_ENT,
- KC_LSPO, ES_A,    ES_S,    ES_D,    ES_F,  ES_G,    ES_H,    ES_J,  ES_K,    ES_L,    ES_NTIL, SFT_CCED,
- SFT_GRV, ES_Z,    ES_X,    ES_C,    ES_V,  ES_B,    ES_N,    ES_M,  ES_COMM, ES_DOT,  ES_QUOT, CTL_ACUT,
- KC_RGUI, KC_ALGR, CTL_LBR, KC_LAPO, LOWER, CTL_SPC, CTL_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
-),
-
-/* Qwerty Greek
- * ,-----------------------------------------------------------------------------------.
- * |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Del  |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
- * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Brite| Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
- * `-----------------------------------------------------------------------------------'
- */
-[_QWERTY_GRK] = LAYOUT_preonic_grid(
- KC_GESC, KC_1,    KC_2,    KC_3,    KC_4,   KC_5,    KC_6,    KC_7,  KC_8,    KC_9,    KC_0,    KC_BSPC,
- KC_TAB,  GK_XI,   GK_THTA, GK_EPS,  GK_RHO, GK_TAU,  GK_PSI,  KC_U,  GK_IOTA, GK_OMGA, GK_PI,   KC_ENT,
- KC_LSPO, GK_ALPH, GK_SGMA, GK_DLTA, GK_PHI, GK_GMMA, GK_ETA,  KC_J,  GK_KPPA, GK_LMBD, KC_SCLN, SFT_QUOT,
- KC_RSPC, GK_ZETA, GK_CHI,  GK_OMI,  GK_UPS, GK_BETA, GK_NU,   GK_MU, KC_COMM, KC_DOT,  KC_SLSH, CTL_BSLS,
- KC_RGUI, MORE,    CTL_LBR, KC_LAPO, LOWER,  CTL_SPC, CTL_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
-),
-
-/* Qwerty Math
- * ,-----------------------------------------------------------------------------------.
- * |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Del  |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
- * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Brite| Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
- * `-----------------------------------------------------------------------------------'
- */
-[_MATH] = LAYOUT_preonic_grid(
- KC_GESC, KC_1,    KC_2,    KC_3,    KC_4,   KC_5,    KC_6,    KC_7,  KC_8,    KC_9,    KC_0,    KC_BSPC,
- KC_TAB,  GK_XI,   GK_THTA, GK_EPS,  GK_RHO, GK_TAU,  GK_PSI,  KC_U,  GK_IOTA, GK_OMGA, GK_PI,   KC_ENT,
- KC_LSPO, GK_ALPH, GK_SGMA, GK_DLTA, GK_PHI, GK_GMMA, GK_ETA,  KC_J,  GK_KPPA, GK_LMBD, KC_SCLN, SFT_QUOT,
- KC_RSPC, GK_ZETA, GK_CHI,  GK_OMI,  GK_UPS, GK_BETA, GK_NU,   GK_MU, KC_COMM, KC_DOT,  KC_SLSH, CTL_BSLS,
- KC_RGUI, MORE,    CTL_LBR, KC_LAPO, LOWER,  CTL_SPC, CTL_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
-),
-
 /* Lower
  * ,-----------------------------------------------------------------------------------.
  * |   ~  |   !  |   @  |   #  |   $  |   %  |   ^  |   &  |   *  |   (  |   )  | Bksp |
@@ -192,6 +129,69 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  RGB_TOG, RGB_RMOD, RGB_MOD, _______, _______, _______, _______, _______, _______,    _______,    _______, _______,
  RGB_SPD, RGB_VAD,  RGB_VAI, RGB_SPI, _______, _______, _______, _______, _______,    _______,    _______, _______
 )
+/* QWERTY_ESP
+ * ,-----------------------------------------------------------------------------------.
+ * |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | Tab  |   Q  |   W  |   F  |   P  |   G  |   J  |   L  |   U  |   Y  |   ;  | Del  |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * | Esc  |   A  |   R  |   S  |   T  |   D  |   H  |   N  |   E  |   I  |   O  |  "   |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * | Shift|   Z  |   X  |   C  |   V  |   B  |   K  |   M  |   ,  |   .  |   /  |Enter |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | Brite| Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_QWERTY_ESP] = LAYOUT_preonic_grid(
+ ES_MORD, ES_1,    ES_2,    ES_3,    ES_4,  ES_5,    ES_6,    ES_7,  ES_8,    ES_9,    ES_0,    KC_BSPC,
+ KC_TAB,  ES_Q,    ES_W,    ES_E,    ES_R,  ES_T,    ES_Y,    ES_U,  ES_I,    ES_O,    ES_P,    KC_ENT,
+ KC_LSPO, ES_A,    ES_S,    ES_D,    ES_F,  ES_G,    ES_H,    ES_J,  ES_K,    ES_L,    ES_NTIL, SFT_CCED,
+ SFT_GRV, ES_Z,    ES_X,    ES_C,    ES_V,  ES_B,    ES_N,    ES_M,  ES_COMM, ES_DOT,  ES_QUOT, CTL_ACUT,
+ KC_RGUI, KC_ALGR, CTL_LBR, KC_LAPO, LOWER, CTL_SPC, CTL_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+),
+
+/* Qwerty Greek
+ * ,-----------------------------------------------------------------------------------.
+ * |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Del  |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | Brite| Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_QWERTY_GRK] = LAYOUT_preonic_grid(
+ KC_GESC, KC_1,    KC_2,    KC_3,    KC_4,   KC_5,    KC_6,    KC_7,  KC_8,    KC_9,    KC_0,    KC_BSPC,
+ KC_TAB,  GK_XI,   GK_THTA, GK_EPS,  GK_RHO, GK_TAU,  GK_PSI,  KC_U,  GK_IOTA, GK_OMGA, GK_PI,   KC_ENT,
+ KC_LSPO, GK_ALPH, GK_SGMA, GK_DLTA, GK_PHI, GK_GMMA, GK_ETA,  KC_J,  GK_KPPA, GK_LMBD, KC_SCLN, SFT_QUOT,
+ KC_RSPC, GK_ZETA, GK_CHI,  GK_OMI,  GK_UPS, GK_BETA, GK_NU,   GK_MU, KC_COMM, KC_DOT,  KC_SLSH, CTL_BSLS,
+ KC_RGUI, MORE,    CTL_LBR, KC_LAPO, LOWER,  CTL_SPC, CTL_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+),
+
+/* Qwerty Math
+ * ,-----------------------------------------------------------------------------------.
+ * |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Del  |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | Brite| Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_MATH] = LAYOUT_preonic_grid(
+ KC_GESC, KC_1,    KC_2,    KC_3,    KC_4,   KC_5,    KC_6,    KC_7,  KC_8,    KC_9,    KC_0,    KC_BSPC,
+ KC_TAB,  GK_XI,   GK_THTA, GK_EPS,  GK_RHO, GK_TAU,  GK_PSI,  KC_U,  GK_IOTA, GK_OMGA, GK_PI,   KC_ENT,
+ KC_LSPO, GK_ALPH, GK_SGMA, GK_DLTA, GK_PHI, GK_GMMA, GK_ETA,  KC_J,  GK_KPPA, GK_LMBD, KC_SCLN, SFT_QUOT,
+ KC_RSPC, GK_ZETA, GK_CHI,  GK_OMI,  GK_UPS, GK_BETA, GK_NU,   GK_MU, KC_COMM, KC_DOT,  KC_SLSH, CTL_BSLS,
+ KC_RGUI, MORE,    CTL_LBR, KC_LAPO, LOWER,  CTL_SPC, CTL_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+),
+
 
 };
 
