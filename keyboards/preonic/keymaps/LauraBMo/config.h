@@ -49,7 +49,7 @@
 #define CTL_SPC RCTL_T(KC_SPC)
 #define CTL_BSLS RCTL_T(KC_BSLS)
 #define CTL_ACUT RCTL_T(ES_ACUT)
-                                                \
+
 #define SFT_QUOT RSFT_T(KC_QUOT)
 #define SFT_CCED RSFT_T(ES_CCED)
 #define SFT_GRV LSFT_T(ES_GRV)
