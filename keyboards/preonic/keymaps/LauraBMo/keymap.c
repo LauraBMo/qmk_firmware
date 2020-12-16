@@ -221,47 +221,33 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           return false;
           break;
         case OCPRN:
-          if (record->event.pressed) {
-            SEND_STRING("()");
-          }
+          SEND_STRING("()");
           return false;
           break;
         case OCBRC:
-          if (record->event.pressed) {
-            SEND_STRING("[]");
-          }
+          SEND_STRING("[]");
           return false;
           break;
         case OCCBR:
-          if (record->event.pressed) {
-            SEND_STRING("{}");
-          }
+          SEND_STRING("{}");
           return false;
           break;
         case QWERTY:
-          if (record->event.pressed) {
-            set_single_persistent_default_layer(_QWERTY);
-            SEND_STRING(SS_RGUI("z"));
-          }
+          set_single_persistent_default_layer(_QWERTY);
+          SEND_STRING(SS_RGUI("z"));
           return false;
           break;
         case QWERTY_ESP:
-          if (record->event.pressed) {
-            set_single_persistent_default_layer(_QWERTY_ESP);
-            SEND_STRING(SS_RGUI("z"));
-          }
+          set_single_persistent_default_layer(_QWERTY_ESP);
+          SEND_STRING(SS_RGUI("z"));
           return false;
           break;
         case MATH:
-          if (record->event.pressed) {
-            set_single_persistent_default_layer(_MATH);
-          }
+          set_single_persistent_default_layer(_MATH);
           return false;
           break;
         case QWERTY_GRK:
-          if (record->event.pressed) {
-            set_single_persistent_default_layer(_QWERTY_GRK);
-          }
+          set_single_persistent_default_layer(_QWERTY_GRK);
           return false;
           break;
         case MORE:
