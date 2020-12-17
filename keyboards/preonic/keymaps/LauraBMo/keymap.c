@@ -40,7 +40,9 @@ enum preonic_keycodes {
   LOWER,
   RAISE,
   MORE,
-  BACKLIT,
+  PSSW,
+  TO,
+  FROM,
   OCPRN,
   OCBRC,
   OCCBR
@@ -107,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
  KC_TILD,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, OCPRN,   OCBRC,   OCCBR,
  _______,  KC_MINS, KC_UNDS, KC_EQL,  KC_PLUS, _______, _______, _______, _______, _______, _______, _______,
- KC_RCBR,  KC_UNDS, KC_PLUS, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+ KC_RCBR,  KC_UNDS, KC_PLUS, _______, _______, _______, _______, _______, FROM,    TO,      _______, _______,
  _______,  _______, KC_RBRC, KC_RPRN, _______, KC_SPC,  KC_SPC,  _______, _______, _______, _______, _______
 ),
 
@@ -126,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = LAYOUT_preonic_grid(
  RESET,   _______,  _______, _______, _______, _______, _______, _______, _______,    _______,    _______, KC_PWR,
- _______, _______,  _______, _______, _______, _______, _______, _______, _______,    _______,    _______, KC_SLEP,
+ PSSW,    _______,  _______, _______, _______, _______, _______, _______, _______,    _______,    _______, KC_SLEP,
  _______, RGB_SAD,  RGB_SAI, _______, _______, _______, _______, QWERTY,  QWERTY_ESP, QWERTY_GRK, MATH,    _______,
  RGB_TOG, RGB_RMOD, RGB_MOD, _______, _______, _______, _______, _______, _______,    _______,    _______, _______,
  RGB_SPD, RGB_VAD,  RGB_VAI, RGB_SPI, _______, _______, _______, _______, _______,    _______,    _______, _______
@@ -220,6 +222,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             layer_off(_RAISE);
             update_tri_layer(_LOWER, _RAISE, _ADJUST);
           }
+          return false;
+          break;
+        case TO:
+          SEND_STRING("->");
+          return false;
+          break;
+        case FROM:
+          SEND_STRING("<-");
           return false;
           break;
         case OCPRN:
