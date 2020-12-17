@@ -15,7 +15,7 @@
  */
 
 #include QMK_KEYBOARD_H
-#include "muse.h"
+/* #include "muse.h" */
 #include "unicodes.h"
 #include "customkey.h"
 
