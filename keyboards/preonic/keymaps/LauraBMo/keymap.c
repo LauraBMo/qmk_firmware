@@ -202,78 +202,101 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-        case LOWER:
-          if (record->event.pressed) {
-            layer_on(_LOWER);
-            update_tri_layer(_LOWER, _RAISE, _ADJUST);
-            update_tri_layer(_LOWER, _QWERTY_GRK, _MATH);
-          } else {
-            layer_off(_LOWER);
-            update_tri_layer(_LOWER, _RAISE, _ADJUST);
-            update_tri_layer(_LOWER, _QWERTY_GRK, _MATH);
-          }
-          return false;
-          break;
-        case RAISE:
-          if (record->event.pressed) {
-            layer_on(_RAISE);
-            update_tri_layer(_LOWER, _RAISE, _ADJUST);
-          } else {
-            layer_off(_RAISE);
-            update_tri_layer(_LOWER, _RAISE, _ADJUST);
-          }
-          return false;
-          break;
-        case TO:
-          SEND_STRING("->");
-          return false;
-          break;
-        case FROM:
-          SEND_STRING("<-");
-          return false;
-          break;
-        case OCPRN:
-          SEND_STRING("()");
-          return false;
-          break;
-        case OCBRC:
-          SEND_STRING("[]");
-          return false;
-          break;
-        case OCCBR:
-          SEND_STRING("{}");
-          return false;
-          break;
-        case QWERTY:
-          set_single_persistent_default_layer(_QWERTY);
-          SEND_STRING(SS_RGUI("z"));
-          return false;
-          break;
-        case QWERTY_ESP:
-          set_single_persistent_default_layer(_QWERTY_ESP);
-          SEND_STRING(SS_RGUI("z"));
-          return false;
-          break;
-        case MATH:
-          set_single_persistent_default_layer(_MATH);
-          return false;
-          break;
-        case QWERTY_GRK:
-          set_single_persistent_default_layer(_QWERTY_GRK);
-          return false;
-          break;
-        case MORE:
-          if (record->event.pressed) {
-            layer_on(_QWERTY_GRK);
-            update_tri_layer(_LOWER, _QWERTY_GRK, _MATH);
-          } else {
-            layer_off(_QWERTY_GRK);
-            update_tri_layer(_LOWER, _QWERTY_GRK, _MATH);
-          }
-          return false;
-          break;
-      }
-    return true;
+  case LOWER:
+    if (record->event.pressed) {
+      layer_on(_LOWER);
+      update_tri_layer(_LOWER, _RAISE, _ADJUST);
+      update_tri_layer(_LOWER, _QWERTY_GRK, _MATH);
+    } else {
+      layer_off(_LOWER);
+      update_tri_layer(_LOWER, _RAISE, _ADJUST);
+      update_tri_layer(_LOWER, _QWERTY_GRK, _MATH);
+    }
+    return false;
+    break;
+  case RAISE:
+    if (record->event.pressed) {
+      layer_on(_RAISE);
+      update_tri_layer(_LOWER, _RAISE, _ADJUST);
+    } else {
+      layer_off(_RAISE);
+      update_tri_layer(_LOWER, _RAISE, _ADJUST);
+    }
+    return false;
+    break;
+  case PSSW:
+    if (record->event.pressed) {
+    }
+    return false;
+    break;
+  case TO:
+    if (record->event.pressed) {
+      SEND_STRING("->");
+    }
+    return false;
+    break;
+  case FROM:
+    if (record->event.pressed) {
+      SEND_STRING("<-");
+    }
+    return false;
+    break;
+  case OCPRN:
+    if (record->event.pressed) {
+      SEND_STRING("()");
+    }
+    return false;
+    break;
+  case OCBRC:
+    if (record->event.pressed) {
+      SEND_STRING("[]");
+    }
+    return false;
+    break;
+  case OCCBR:
+    if (record->event.pressed) {
+      SEND_STRING("{}");
+    }
+    return false;
+    break;
+  case QWERTY:
+    if (record->event.pressed) {
+      set_single_persistent_default_layer(_QWERTY);
+      SEND_STRING(SS_RGUI("z"));
+    }
+    return false;
+    break;
+  case QWERTY_ESP:
+    if (record->event.pressed) {
+      set_single_persistent_default_layer(_QWERTY_ESP);
+      SEND_STRING(SS_RGUI("z"));
+    }
+    return false;
+    break;
+  case MATH:
+    if (record->event.pressed) {
+      set_single_persistent_default_layer(_MATH);
+    }
+    return false;
+    break;
+  case QWERTY_GRK:
+    if (record->event.pressed) {
+      set_single_persistent_default_layer(_QWERTY_GRK);
+    }
+    return false;
+    break;
+  case MORE:
+    if (record->event.pressed) {
+      layer_on(_QWERTY_GRK);
+      update_tri_layer(_LOWER, _QWERTY_GRK, _MATH);
+    } else {
+      layer_off(_QWERTY_GRK);
+      update_tri_layer(_LOWER, _QWERTY_GRK, _MATH);
+    }
+    return false;
+    break;
+  }
+  return true;
 };
 
 /* Local Variables: */
