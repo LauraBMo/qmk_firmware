@@ -38,3 +38,10 @@
 
 /* Input mode for unicode chars: UC_MAC, UC_LNX or UC_WINC */
 #define UNICODE_SELECTED_MODES UC_LNX
+
+/* Space Cadet Shift */
+/* https://beta.docs.qmk.fm/using-qmk/advanced-keycodes/feature_space_cadet */
+/* WARNING: Space Cadet must be defined here, in config.h */
+/* WARNING:  LAPO_KEYS is already in use */
+#define LSPO_KEYS KC_LGUI, KC_LSFT, KC_SCLN
+#define RSPC_KEYS KC_LSFT, KC_LSFT, KC_LBRC

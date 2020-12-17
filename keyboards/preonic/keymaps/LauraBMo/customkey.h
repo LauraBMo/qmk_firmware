@@ -1,13 +1,6 @@
 
 /* My alias to make a more readable keymap */
 
-
-/* Space Cadet Shift */
-/* https://beta.docs.qmk.fm/using-qmk/advanced-keycodes/feature_space_cadet */
-/* LAPO_KEYS is already in use */
-#define LSPO_KEYS KC_LGUI, KC_LSFT, KC_SCLN
-#define RSPC_KEYS KC_LSFT, KC_LSFT, KC_LBRC
-
 /* Control on hold and *** on tap */
 #define CTL_LBR LCTL_T(KC_LBRC)
 #define CTL_SPC RCTL_T(KC_SPC)
