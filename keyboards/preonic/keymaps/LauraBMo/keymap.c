@@ -106,11 +106,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_RAISE] = LAYOUT_preonic_grid(
- KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
- KC_TILD,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, OCPRN,   OCBRC,   OCCBR,
- _______,  KC_MINS, KC_UNDS, KC_EQL,  KC_PLUS, _______, _______, _______, _______, _______, _______, _______,
- KC_RCBR,  KC_UNDS, KC_PLUS, _______, _______, _______, _______, _______, FROM,    TO,      _______, _______,
- _______,  _______, KC_RBRC, KC_RPRN, _______, KC_SPC,  KC_SPC,  _______, _______, _______, _______, _______
+ _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+ KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, OCPRN,   OCBRC,   OCCBR,
+ KC_TILD, KC_MINS, KC_UNDS, KC_EQL,  KC_PLUS, _______, _______, _______, _______, _______, _______, _______,
+ KC_RCBR, KC_UNDS, KC_PLUS, _______, _______, _______, _______, _______, FROM,    TO,      _______, _______,
+ _______, _______, KC_RBRC, KC_RPRN, _______, KC_SPC,  KC_SPC,  _______, _______, _______, _______, _______
 ),
 
 /* Adjust (Lower + Raise)
