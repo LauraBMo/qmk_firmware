@@ -37,3 +37,6 @@
 #define GK_CHI XP(CHI, CCHI)
 #define GK_PSI XP(PSI, CPSI)
 #define GK_OMGA XP(OMEGA, COMEGA)
+
+/* Math symbols, for julia */
+#define MTH_IN XP(MATHIN, MATHNI)
