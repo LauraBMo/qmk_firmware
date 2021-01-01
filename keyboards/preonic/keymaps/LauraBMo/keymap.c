@@ -206,11 +206,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
       layer_on(_LOWER);
       update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      update_tri_layer(_LOWER, _QWERTY_GRK, _MATH);
     } else {
       layer_off(_LOWER);
       update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      update_tri_layer(_LOWER, _QWERTY_GRK, _MATH);
     }
     return false;
     break;
@@ -287,11 +285,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
   case MORE:
     if (record->event.pressed) {
-      layer_on(_QWERTY_GRK);
-      update_tri_layer(_LOWER, _QWERTY_GRK, _MATH);
+      layer_on(_MATH);
+      update_tri_layer(_RAISE, _MATH, _QWERTY_GRK);
     } else {
-      layer_off(_QWERTY_GRK);
-      update_tri_layer(_LOWER, _QWERTY_GRK, _MATH);
+      layer_off(_MATH);
+      update_tri_layer(_RAISE, _MATH, _QWERTY_GRK);
     }
     return false;
     break;
