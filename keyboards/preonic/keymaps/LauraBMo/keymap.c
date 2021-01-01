@@ -169,11 +169,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY_GRK] = LAYOUT_preonic_grid(
- KC_GESC, KC_1,    KC_2,    KC_3,    KC_4,   KC_5,    KC_6,    KC_7,  KC_8,    KC_9,    KC_0,    KC_BSPC,
- KC_TAB,  GK_XI,   GK_THTA, GK_EPS,  GK_RHO, GK_TAU,  GK_PSI,  KC_U,  GK_IOTA, GK_OMGA, GK_PI,   KC_ENT,
- KC_LSPO, GK_ALPH, GK_SGMA, GK_DLTA, GK_PHI, GK_GMMA, GK_ETA,  KC_J,  GK_KPPA, GK_LMBD, KC_SCLN, SFT_QUOT,
- KC_RSPC, GK_ZETA, GK_CHI,  GK_OMI,  GK_UPS, GK_BETA, GK_NU,   GK_MU, KC_COMM, KC_DOT,  KC_SLSH, CTL_BSLS,
- KC_RGUI, MORE,    CTL_LBR, KC_LAPO, LOWER,  CTL_SPC, CTL_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+ KC_GESC, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
+ KC_TAB,  GK_XI,   GK_THTA, GK_EPS,  GK_RHO,  GK_TAU,  GK_PSI,  KC_U,    GK_IOTA, GK_OMGA, GK_PI,   KC_ENT,
+ KC_LSPO, GK_ALPH, GK_SGMA, GK_DLTA, GK_PHI,  GK_GMMA, GK_ETA,  KC_J,    GK_KPPA, GK_LMBD, KC_SCLN, SFT_QUOT,
+ KC_RSPC, GK_ZETA, GK_CHI,  GK_OMI,  GK_UPS,  GK_BETA, GK_NU,   GK_MU,   KC_COMM, KC_DOT,  KC_SLSH, CTL_BSLS,
+ KC_RGUI, MORE,    CTL_LBR, KC_LAPO, _______, CTL_SPC, CTL_SPC, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Qwerty Math
